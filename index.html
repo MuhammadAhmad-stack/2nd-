@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Level 2 — For Namira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor-trail" id="cursorTrail"></div>
+
+<div class="hud">
+  <div class="hud-label">LOVE LEVEL</div>
+  <div class="hud-bar"><div class="hud-fill" id="hudFill"></div><div class="hud-heart" id="hudHeart">♥</div></div>
+  <div class="hud-pct"><span id="hudPct">00</span>%</div>
+</div>
+
+<div class="scanlines"></div>
+
+<!-- ============ BOOT ============ -->
+<section id="boot" class="screen boot-screen">
+  <div class="boot-inner">
+    <p class="boot-kicker" id="bootKicker">SAVE FILE FOUND — "AHMAD &amp; NAMIRA"</p>
+    <h1 class="boot-title">LEVEL <span class="glitch" data-text="2">2</span></h1>
+    <p class="boot-sub">FOR 2 YEARS OF LOVE COMMITMENT AND NEVER GIVING UP ON EACH OTHER </p>
+    <div class="boot-loadbar"><div class="boot-loadfill"></div></div>
+    <button id="startBtn" class="pixel-btn">▶ PRESS START</button>
+    <p class="boot-hint"> TURN YOUR SOUND ON ,YA ROHI 🔊</p>
+  </div>
+</section>
+
+<div class="page-content" id="pageContent">
+
+  <!-- ============ RECAP ============ -->
+  <section id="recap" class="screen">
+    <p class="eyebrow">PREVIOUSLY, ON LEVEL 1</p>
+    <h2 class="section-title">1st Years Achievements Unlocked</h2>
+    <div class="badge-row">
+      <div class="badge"><div class="badge-icon">🏆</div><p class="badge-text">Survived a distance most people give up on</p></div>
+      <div class="badge"><div class="badge-icon">💬</div><p class="badge-text">Did thousands of calls, voice notes &amp; Late night talks</p></div>
+      <div class="badge"><div class="badge-icon">🕋</div><p class="badge-text">Believed on each other and Allah and communicated in every emotion,mood and never gave up ever on each other</p></div>
+      <div class="badge"><div class="badge-icon">🎮</div><p class="badge-text">Unlocked "Level 2" — Loved each other so much that now even 2 years happened</p></div>
+    </div>
+  </section>
+
+  <!-- ============ JOURNEY MAP ============ -->
+  <section id="map" class="screen">
+    <p class="eyebrow">THE MAP</p>
+    <h2 class="section-title">Our Journey in these 2 years(Our Levels)</h2>
+    <p class="section-sub">Tap each one, habibti.</p>
+
+    <div class="journey">
+      <svg class="journey-path" viewBox="0 0 100 620" preserveAspectRatio="none">
+        <path d="M50,10 C20,80 80,140 50,210 C20,280 80,340 50,410 C20,480 80,540 50,610" />
+      </svg>
+      <div class="node" data-node="0" style="--pos:10">
+        <button class="node-btn"><img src="assets/moment1.jpg" alt=""><span class="node-num">1</span></button>
+        <span class="node-label">level(1-1) · THE START</span>
+      </div>
+      <div class="node" data-node="1" style="--pos:210">
+        <button class="node-btn"><img src="assets/first2.jpg" alt=""><span class="node-num">2</span></button>
+        <span class="node-label">1-2 · FIRST CALL</span>
+      </div>
+      <div class="node" data-node="2" style="--pos:410">
+        <button class="node-btn"><img src="assets/first1.jpg" alt=""><span class="node-num">3</span></button>
+        <span class="node-label">1-3 · FIRST NEW YEAR</span>
+      </div>
+      <div class="node" data-node="3" style="--pos:610">
+        <button class="node-btn"><img src="assets/memory1.jpg" alt=""><span class="node-num">4</span></button>
+        <span class="node-label">1-4 · YOUR VERY FIRST BIRTHDAY GIFT</span>
+      </div>
+      <div class="node node-boss" data-node="4" style="--pos:750">
+        <button class="node-btn"><img src="assets/everything.jpg" alt=""><span class="node-num">★</span></button>
+        <span class="node-label">BOSS-Level ·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MEMORY MATCH ============ -->
+  <section id="match" class="screen">
+    <p class="eyebrow">SIDE QUEST</p>
+    <h2 class="section-title">Match the Memories</h2>
+    <p class="section-sub" id="matchStatus">find all 3 pairs</p>
+    <div class="match-grid" id="matchGrid"></div>
+    <p class="match-win" id="matchWin">&nbsp;</p>
+  </section>
+
+  <!-- ============ GIFT BOXES ============ -->
+  <section id="gifts" class="screen">
+    <p class="eyebrow">SIDE QUEST</p>
+    <h2 class="section-title">Choose Your Reward</h2>
+    <p class="section-sub" id="giftIntro">pick carefully… this might be your actual gift 👀</p>
+    <div class="gift-row" id="giftRow"></div>
+    <p class="gift-result" id="giftResult">&nbsp;</p>
+  </section>
+
+  <!-- ============ STEAL YOUR HEART ============ -->
+  <section id="steal" class="screen">
+    <p class="eyebrow">FINAL SIDE QUEST</p>
+    <h3 class="steal-question">After seeing this.<br>(Will i get a selfie of you while taking a shower) 😚</h3>
+    <p class="steal-dare">(Try saying no. i dare you.) 😉</p>
+    <div class="steal-zone" id="stealZone">
+      <button id="yesBtn" class="steal-yes">yes</button>
+      <button id="noBtn" class="steal-no">no</button>
+    </div>
+    <p class="steal-caption" id="stealCaption">&nbsp;</p>
+  </section>
+
+  <!-- ============ QUIET CALLBACK ============ -->
+  <section id="callback" class="screen">
+    <p class="eyebrow">A QUIET MOMENT</p>
+    <div class="callback-card">
+      <img src="assets/fixed.jpg" alt="">
+      <p>Every level has a moment where the game just... stops. This is my moment. No games here, no jokes — i just want to take a long breath with just you, and be happy on how insanely lucky i am that you picked me. NAMIRA HAMIDI i swear even If marrying you and holding you like this IS the last moment of my life i swear i will stil do it without a single thought. <Br> I AM TELLING YOU THIS TODAY YOU DONT NEED TO WORRY BECAUSE I AM COMING TO MARRY YOU✨ AND  MAKE YOU FOREVER MINE💍 INSHA ALLAH. </p>
+    </div>
+  </section>
+
+  <!-- ============ VAULT ============ -->
+  <section id="vault" class="screen">
+    <p class="eyebrow">LOCKED CONTENT</p>
+    <h2 class="section-title">The Vault</h2>
+    <p class="section-sub">Pick the lock. Three clicks.</p>
+    <div class="vault-wrap">
+      <button id="lockBtn" class="lock-icon" aria-label="unlock">🔒</button>
+      <div class="lock-dots"><span class="dot" id="dot1"></span><span class="dot" id="dot2"></span><span class="dot" id="dot3"></span></div>
+    </div>
+    <div class="vault-content" id="vaultContent">
+      <p class="vault-note">no pausing. no skipping. just listen 🎧</p>
+      <button id="playRecording" class="pixel-btn">▶ play voice note</button>
+      <audio id="myRecording" src="assets/my_recording.mp3"></audio>
+    </div>
+  </section>
+
+  <!-- ============ FINAL ============ -->
+  <section id="final" class="screen final-screen">
+    <canvas id="fireworksCanvas"></canvas>
+    <div class="final-inner">
+      <p class="eyebrow"><h1>HAPPY 2ND ANNIVERSARY (MRAATI ❤️)</h1></p>
+      <h2 class="final-title">LEVEL 2 : COMPLETED</h2>
+      <div class="final-letter">
+        <p>Two years ago I found the person that i want to spend my entire life with. You mean everything to me, Namira. Not "a big part," not "the best part" — everything. Every mile every distance between us has just been a loading screen, and I will walk every mile every distanse i promise you. if it means I get to be with you at the end of this distance. Habiba "I love you today the way I loved you on day one", except now I actually know what I'm saying when I say it: I want to live my life Forever with you 💍, however long forever takes Insha Allah.</p>
+      </div>
+      <p class="final-sign">Ahmad ✧ Namira</p>
+      <p class="final-tag">— to be continued —</p>
+      <button id="newGameBtn" class="pixel-btn ghost">↻ new game +</button>
+    </div>
+  </section>
+
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose">✕</button>
+    <img id="modalImg" src="" alt="">
+    <p class="modal-tag" id="modalTag"></p>
+    <p class="modal-caption" id="modalCaption"></p>
+  </div>
+</div>
+
+<audio id="bgMusic" loop><source src="assets/bg_music.mp3" type="audio/mpeg"></audio>
+<footer>Made with love and a lott of coding :) by Ahmad, for Namira <br>HAPPY ANNIVERSARY HABIBTI 🤍</footer>
+<script src="script.js"></script>
+</body>
+</html>
